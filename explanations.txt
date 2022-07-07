@@ -1,0 +1,31 @@
+В файле Oop_PDP.cls всё собрано в обном месте, для наглядности...есть основной абстрактный класс 
+AbstractPhone, от которого наследуются другие классы. в классе WirelessPhone реализована перегрузка 
+конструктора, в классе CellPhone реализована переопределение метода.
+
+____
+Также есть класс User и классы ThomasEdisonPhone, Phone, которые наследуются от AbstractPhone. При
+помощи данных классов я реализовываю принцип ООП - полиморфизм:
+
+AbstractPhone simplePhone = new ThomasEdisonPhone('black');
+AbstractPhone modernPhone = new Phone('white');
+User user = new User('Andrei');
+user.callAnotherUser(224466, simplePhone);
+//'Simple call'
+//'Call number'
+user.callAnotherUser(224466, modernPhone);
+//'Modern call'
+//'Call number 224466'
+
+____
+Также есть класс OuterClass, в котором отображено взаимодействие парент-класса и субкласса 
+
+ OuterClass outerCl = new OuterClass();
+ OuterClass.InnerClass abstr = new OuterClass.InnerClass();
+ abstr.myMethod1();
+
+ public class Inst extends OuterClass.AbstractChildClass {
+     public override Integer abstractMethod() { return 5; }
+ }
+ OuterClass.AbstractChildClass outerCl = new Inst();
+  System.debug(outerCl.abstractMethod());  
+  // 5
